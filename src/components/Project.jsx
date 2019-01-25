@@ -53,6 +53,7 @@ class Project extends Component {
     const { usr, pwd, pwd2 } = this.state;
     return (
       <ul className="list-group">
+        <li className="list-group-item">项目列表</li>
         {
           this.props.projectList.map(item => {
             return (
@@ -61,15 +62,24 @@ class Project extends Component {
                   <div className="col-sm-2">
                     <a href="#">{item.name}</a>
                   </div>
-                  <div className="col-sm-3 offset-sm-7">
-                    <a href="javascript:void(0);" className="">编辑</a>
-                    <a href="javascript:void(0);" className="">双击删除</a>
+                  <div className="col-sm-2 offset-sm-8 clearfix">
+                    <a href="javascript:void(0);" className="float-left fa fa-pencil">编辑</a>
+                    <a href="javascript:void(0);" className="float-right fa fa-minus">双击删除</a>
                   </div>
                 </div>
               </li>
             )
           })
         }
+        <li className="list-group-item bg-light">
+          <div class="form-group">
+            <label for="projectName">项目名称:</label>
+            <input type="text" class="form-control" id="projectName" />
+          </div>
+        </li>       
+        <li className="list-group-item text-center text-success bg-light">
+          <i className="fa fa-plus"></i>新增项目
+        </li>
       </ul>
     );
   }
