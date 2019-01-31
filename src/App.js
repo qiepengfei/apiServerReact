@@ -1,13 +1,11 @@
 
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.scss';
 import Register from './components/Register';
 import Login from './components/Login';
 import Project from './components/Project';
 import Module from './components/Module';
-import Header from './components/Header';
-// import Navigation from './components/Navigation';
+import Interface from './components/Interface';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 class App extends Component {
@@ -15,9 +13,17 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="container-fluid">
-          <div className="row">
-            <Header></Header>
-          </div>
+          <ul className="nav">
+            <li className="nav-item nav-username">
+              <span className="badge badge-pill badge-info">username</span>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/project">账号管理</a>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/login?logout=true">登出</Link>
+            </li>
+          </ul>
           <div className="row">
             <div className="col-sm-3">
                 <nav className="navbar bg-light">
@@ -33,7 +39,10 @@ class App extends Component {
                     </li>
                     <li className="nav-item">
                       <Link className="nav-link" to="/module">module列表页</Link>
-                    </li>                    
+                    </li> 
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/interface">新增接口页面</Link>
+                    </li>                                       
                   </ul>
                 </nav>
             </div>
@@ -42,6 +51,7 @@ class App extends Component {
                 <Route exact={true} path="/login" component={Login}></Route>
                 <Route exact={true} path="/project" component={Project}></Route>
                 <Route exact={true} path="/module" component={Module}></Route>
+                <Route exact={true} path="/interface" component={Interface}></Route>
             </div>
           </div>
         </div>
